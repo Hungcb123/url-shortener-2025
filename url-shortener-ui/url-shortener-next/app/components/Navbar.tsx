@@ -6,7 +6,7 @@ export default function Navbar(){
         <div className='max-w-7xl mx-auto h-16 px-6 items-center flex justify-between'>
             <div className='gap-14 flex items-center'>
             <Link href="/" className='text-3xl font-bold tracking-tight bg-gradient-to-br from-gray-900/50 via-gray-700 to-gray-400 bg-clip-text text-transparent'>
-                UrlS
+                urlS
             </Link>
 
             <Link href="/" className='ml-10 text-black'>Home</Link>
