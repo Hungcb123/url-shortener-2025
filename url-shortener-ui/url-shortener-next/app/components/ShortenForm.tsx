@@ -24,12 +24,13 @@ export default function ShortenFrom(){
     }
   }
 
-  const handleGetShortUrl = async (e : any) => {
+  const handleGetShortUrl = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
     try{
         if(originalUrl.trim() === ''){
+          window.alert("Url can not empty!")
           throw new Error('Url cannot empty');
         }
         const response = await axios.post('http://localhost:8080/api/v1/url/shorten', {
@@ -51,22 +52,26 @@ export default function ShortenFrom(){
         onSubmit={handleGetShortUrl}
       >
         <div
-          className="flex gap-4 items-center"
+          className="flex gap-5 items-center"
         >
-          <label className="text-gray-300 font-semibold ml-1">Your url</label>
+          {/* <label className="text-gray-700 font-semibold ml-1">Your url</label> */}
           <input
             className="
               rounded-xl
               py-2 px-6
               h-10
-              bg-gray-50 
-              border-gray-200
-              text-gray-900 placeholder:text-gray-400
+
+              placeholder:text-gray-400
+              border border-slate-200
+              bg-slate-200
+              text-slate-700
+              shadow-sm
+              outline-none
               focus:outline-none 
             focus:bg-white 
             focus:border-purple-500 
               focus:ring-4 focus:ring-purple-500/10
-              transition-all duration-200
+              transition-all duration-200 
             "
             type='url'
             placeholder='https://www.example.com/super-long'
@@ -76,12 +81,12 @@ export default function ShortenFrom(){
           <button 
             className="
               rounded-xl
-              py-3 px-6
+              py-2 px-6
               h-10
               text-gray-900
               font-semibold
-              bg-white
-              hover:opacity-50 hover:bg-gray-50 hover:border-gray-300
+              bg-slate-200
+              hover:opacity-50 hover:bg-gray-300 hover:border-gray-400
               transition-all duration-200
               disabled:opacity-50 disabled:cursor-not-allowed
               shadow-sm
@@ -95,13 +100,13 @@ export default function ShortenFrom(){
 
         {shortUrl && (
           <div
-            className='flex mt-6 items-center'
+            className='flex mt-6 items-center justify-center'
           >
-            <span
+            {/* <span
               className="text-gray-300 font-semibold ml-1 pr-3"
-            >Short url: </span>
+            >Short url: </span> */}
             <a
-              className='text-while-300'
+              className='text-white-300'
               href={shortUrl}
               target="_blank"
               rel="noopener noreferrer"
