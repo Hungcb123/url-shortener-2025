@@ -1,0 +1,50 @@
+HELP.md
+target/
+.properties
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+### Mongo ###
+/data/
+/mongo
+*.lock
+*.wt
+*.bson
+*.ns
+*.log
+*.jrn
+*.turtle
+*.0000000001
+*.checkpoint
+*.cache
+*.0000000002
+*.0000000003
+### Redis ###
+/dump.rdb
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
