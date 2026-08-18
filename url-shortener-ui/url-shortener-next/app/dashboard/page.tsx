@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import Link from 'next/link';
 interface UrlData{
     id: string;
     originalUrl: string;
@@ -17,7 +16,7 @@ export default function DashboardPage(){
         const handleGetAllUrls = async () => {
             setLoading(true);
             try{
-                const response = await axios.get('http://localhost:8080/api/v1/url');
+                const response = await axios.get('http://localhost:8080/api/v1/url', { withCredentials: true });
                 setUrls(response.data);
             } catch(error) {
                 console.log("Error in get all url dashboard" + error);

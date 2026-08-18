@@ -1,5 +1,6 @@
 'use client'
 import {useState} from 'react';
+import type { FormEvent } from 'react';
 import axios from 'axios';
 
 export default function ShortenFrom(){
@@ -24,7 +25,7 @@ export default function ShortenFrom(){
     }
   }
 
-  const handleGetShortUrl = async (e) => {
+  const handleGetShortUrl = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -35,7 +36,7 @@ export default function ShortenFrom(){
         }
         const response = await axios.post('http://localhost:8080/api/v1/url/shorten', {
             originalUrl: originalUrl
-        });
+        }, { withCredentials: true });
         const data = response.data.shortUrl;
         setShortUrl(data);
         console.log("toi chay toi day roi");
@@ -131,6 +132,8 @@ export default function ShortenFrom(){
             
           </div>
         )}
+
+        {error && <p className="mt-4 text-center text-red-600">{error}</p>}
 
         
       </form>
